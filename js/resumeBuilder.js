@@ -29,7 +29,7 @@ var project = {
 		"title": "project2",
 		"dates": "dates2",
 		"description": "description2",
-		"image": "https://placekitten.com/g/150/150"
+		"image": "http://lorempixel.com/g/150/150/"
 		}
 	]
 }
