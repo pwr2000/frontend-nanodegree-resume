@@ -122,7 +122,6 @@ function displayWork() {
 		$(".work-entry:last").append(formattedEmployerTitle);
 	}
 }
-
 displayWork();
 
 
@@ -139,27 +138,29 @@ function displayProject() {
 		$(".project-entry:last").append(formattedProjectAll);
 	}
 }
-
 displayProject();
+
+
+// EDUCATION Section
+function displayEducation() {
+	for (school in education.schools) {
+		$("#education").append(HTMLschoolStart);
+
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		var formattedSchoolAll = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
+		$(".education-entry:last").append(formattedSchoolAll);
+	}
+}
+displayEducation();
+
+// TO DO: add online courses
+
 
 
 // add widgets to HTML page
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
