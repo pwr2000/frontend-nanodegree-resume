@@ -3,14 +3,14 @@ var work = {
 		{
 		"employer": "employer1",
 		"title": "title1",
-		"location": "location1",
+		"location": "Mountain View, CA",
 		"dates": "dates1",
 		"description": "description1"
 		},
 		{
 		"employer": "employer2",
 		"title": "title2",
-		"location": "location2",
+		"location": "San Francisco, CA",
 		"dates": "dates2",
 		"description": "description2"
 		}
@@ -23,36 +23,37 @@ var project = {
 		"title": "project1",
 		"dates": "dates1",
 		"description": "description1",
-		"image": "image1"
+		"image": "http://lorempixel.com/150/150"
 		},
 		{
 		"title": "project2",
 		"dates": "dates2",
 		"description": "description2",
-		"image": "image2"
+		"image": "https://placekitten.com/g/150/150"
 		}
 	]
 }
 
 var bio = {
-	"name": "firstName1 lastName1",
-	"role": "role1",
-	"welcomeMessage": "message1",
+	"name": "Ronny Hoesada",
+	"role": "Full Stack Developer Ninja",
+	"welcomeMessage": "Welcome to My Page",
+	"image": "images/fry.jpg",
 	"contacts": {
 		"mobile": "mobile1",
 		"email": "email1",
 		"github": "github1",
 		"twitter": "twitter1",
-		"location": "location1"
+		"location": "San Francisco, CA"
 	},
-	"skills": ["awesome", "JavaScript", "HTML", "CSS"]
+	"skills": ["awesome", "JavaScript", "HTML", "CSS"],
 }
 
 var education = {
 	"schools": [
 		{
 		"name": "name1",
-		"location": "location1",
+		"location": "San Francisco, CA",
 		"degree": "degree1",
 		"majors": ["econ", "psychology"],
 		"dates": "dates1",
@@ -74,7 +75,7 @@ var education = {
 		},
 		{
 		"name": "name2",
-		"location": "location2",
+		"location": "Los Angeles, CA",
 		"degree": "degree2",
 		"majors": ["math", "physics"],
 		"dates": "dates2",
@@ -98,21 +99,30 @@ var education = {
 }
 
 // HEADER Section
-var name = bio.name;
-var formattedName = HTMLheaderName.replace("%data%", name);
+function displayBio() {
+	// General Bio
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+	var formattedBioPic = HTMLbioPic.replace("%data%", bio.image);
+	var formattedAll = formattedName + formattedRole + formattedWelcomeMessage + formattedBioPic;
+	$("#header").prepend(formattedAll);
 
-var role = bio.role;
-var formattedRole = HTMLheaderRole.replace("%data%", role);
+	// Skills at a glance
+	$("#topContacts").append(HTMLskillsStart);
+	for (skill in bio.skills) {
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+	$("#skills").append(formattedSkill);
+	}
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
+}
+displayBio();
 
 
 // WORK EXPERIENCE Section
 function displayWork() {
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
-
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
@@ -129,7 +139,6 @@ displayWork();
 function displayProject() {
 	for (p in project.projects) {
 		$("#projects").append(HTMLprojectStart);
-
 		var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[p].title);
 		var formattedDates = HTMLprojectDates.replace("%data%", project.projects[p].dates);
 		var formattedDescription = HTMLprojectDescription.replace("%data%", project.projects[p].description);
@@ -145,7 +154,6 @@ displayProject();
 function displayEducation() {
 	for (school in education.schools) {
 		$("#education").append(HTMLschoolStart);
-
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
@@ -154,11 +162,10 @@ function displayEducation() {
 		var formattedSchoolAll = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
 		$(".education-entry:last").append(formattedSchoolAll);
 	}
+
+	// TO DO: add online courses
 }
 displayEducation();
-
-// TO DO: add online courses
-
 
 
 // add widgets to HTML page
