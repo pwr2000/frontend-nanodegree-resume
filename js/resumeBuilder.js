@@ -57,21 +57,7 @@ var education = {
 		"degree": "degree1",
 		"majors": ["econ", "psychology"],
 		"dates": "dates1",
-		"url": "url1",
-		"onlineCourses": [
-			{
-			"title": "title1a",
-			"school": "school1a",
-			"dates": "dates1a",
-			"url": "url1a"
-			},
-			{
-			"title": "title1b",
-			"school": "school1b",
-			"dates": "dates1b",
-			"url": "url1b"
-			}
-		]
+		"url": "url1"
 		},
 		{
 		"name": "name2",
@@ -79,21 +65,22 @@ var education = {
 		"degree": "degree2",
 		"majors": ["math", "physics"],
 		"dates": "dates2",
-		"url": "description2",
-		"onlineCourses": [
-			{
-			"title": "title2a",
-			"school": "school2a",
-			"dates": "dates2a",
-			"url": "url2a"
-			},
-			{
-			"title": "title2b",
-			"school": "school2b",
-			"dates": "dates2b",
-			"url": "url2b"
-			}
-		]
+		"url": "description2"
+		}
+	],
+
+	"onlineCourses": [
+		{
+		"title": "onlineTitle1",
+		"school": "onlineSchool1",
+		"dates": "onlineDates1",
+		"url": "onlineURL1"
+		},
+		{
+		"title": "onlineTitle2",
+		"school": "onlineSchool2",
+		"dates": "onlineDates2",
+		"url": "onlineURL2"
 		}
 	]
 }
@@ -171,7 +158,17 @@ function displayEducation() {
 		$(".education-entry:last").append(formattedSchoolAll);
 	}
 
-	// TO DO: add online courses
+	// Online courses
+	$("#education").append(HTMLonlineClasses);
+	for (online in education.onlineCourses) {
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[online].dates);
+		var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[online].url);
+		var formattedOnlineAll = formattedOnlineTitle + formattedOnlineSchool + formattedOnlineDates + formattedOnlineURL;
+		console.log(formattedOnlineAll);
+		$(".education-entry:last").next().append(formattedOnlineAll);
+	}
 }
 displayEducation();
 
