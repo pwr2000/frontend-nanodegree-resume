@@ -1,18 +1,18 @@
 var work = {
 	"jobs": [
 		{
-		"employer": "employer1",
-		"title": "title1",
+		"employer": "Google",
+		"title": "Front-end Developer",
 		"location": "Mountain View, CA",
-		"dates": "dates1",
-		"description": "description1"
+		"dates": "2015 - present",
+		"description": "The best front-end engineer"
 		},
 		{
-		"employer": "employer2",
-		"title": "title2",
+		"employer": "Twitter",
+		"title": "Junior Front-end Developer",
 		"location": "San Francisco, CA",
-		"dates": "dates2",
-		"description": "description2"
+		"dates": "2012 - 2015",
+		"description": "Created the blue bird"
 		}
 	]
 }
@@ -20,15 +20,15 @@ var work = {
 var project = {
 	"projects": [
 		{
-		"title": "project1",
-		"dates": "dates1",
-		"description": "description1",
+		"title": "Street Photography",
+		"dates": "2015",
+		"description": "Voted the best street photography by Photo magazine",
 		"image": "http://lorempixel.com/150/150"
 		},
 		{
-		"title": "project2",
-		"dates": "dates2",
-		"description": "description2",
+		"title": "BW Photography",
+		"dates": "2014",
+		"description": "Won 2014 most artistic BW photography",
 		"image": "http://lorempixel.com/g/150/150/"
 		}
 	]
@@ -46,41 +46,41 @@ var bio = {
 		"twitter": "@pwr2000",
 		"location": "San Francisco, CA"
 	},
-	"skills": ["awesome", "JavaScript", "HTML", "CSS"],
+	"skills": ["Ruby on Rails", "JavaScript", "HTML5", "CSS"],
 }
 
 var education = {
 	"schools": [
 		{
-		"name": "name1",
-		"location": "San Francisco, CA",
-		"degree": "degree1",
-		"majors": ["econ", "psychology"],
-		"dates": "dates1",
-		"url": "url1"
+		"name": "Stanford University",
+		"location": "Stanford, CA",
+		"degree": "Master of Science",
+		"majors": "Computer Science",
+		"dates": "2010",
+		"url": "www.Stanford.edu"
 		},
 		{
-		"name": "name2",
-		"location": "Los Angeles, CA",
-		"degree": "degree2",
-		"majors": ["math", "physics"],
-		"dates": "dates2",
-		"url": "description2"
+		"name": "UC Berkeley",
+		"location": "Berkeley, CA",
+		"degree": "Bachelor of Science",
+		"majors": "EECS",
+		"dates": "2008",
+		"url": "www.Berkeley.edu"
 		}
 	],
 
 	"onlineCourses": [
 		{
-		"title": "onlineTitle1",
-		"school": "onlineSchool1",
-		"dates": "onlineDates1",
-		"url": "onlineURL1"
+		"title": "Intro to HTML and CSS",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
 		},
 		{
-		"title": "onlineTitle2",
-		"school": "onlineSchool2",
-		"dates": "onlineDates2",
-		"url": "onlineURL2"
+		"title": "JavaScript Basics",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/javascript-basics--ud804"
 		}
 	]
 }
