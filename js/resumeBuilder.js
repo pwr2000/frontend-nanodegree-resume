@@ -40,10 +40,10 @@ var bio = {
 	"welcomeMessage": "Welcome to My Page",
 	"image": "images/fry.jpg",
 	"contacts": {
-		"mobile": "mobile1",
-		"email": "email1",
-		"github": "github1",
-		"twitter": "twitter1",
+		"mobile": "(415) 123-4567",
+		"email": "rh@example.com",
+		"github": "pwr2000",
+		"twitter": "@pwr2000",
 		"location": "San Francisco, CA"
 	},
 	"skills": ["awesome", "JavaScript", "HTML", "CSS"],
@@ -107,6 +107,14 @@ function displayBio() {
 	var formattedBioPic = HTMLbioPic.replace("%data%", bio.image);
 	var formattedAll = formattedName + formattedRole + formattedWelcomeMessage + formattedBioPic;
 	$("#header").prepend(formattedAll);
+
+	// Contact Info
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	var formattedContacts = formattedMobile + formattedEmail + formattedGithub + formattedTwitter;
+	$("#topContacts").append(formattedContacts);
 
 	// Skills at a glance
 	$("#topContacts").append(HTMLskillsStart);
