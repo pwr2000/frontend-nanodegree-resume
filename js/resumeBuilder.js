@@ -1,41 +1,6 @@
 "use strict";
 
-var work = {
-	"jobs": [
-		{
-		"employer": "Google",
-		"title": "Front-end Developer",
-		"location": "Mountain View, CA",
-		"dates": "2015 - present",
-		"description": "The best front-end engineer"
-		},
-		{
-		"employer": "Twitter",
-		"title": "Junior Front-end Developer",
-		"location": "San Francisco, CA",
-		"dates": "2012 - 2015",
-		"description": "Created the blue bird"
-		}
-	]
-};
-
-var project = {
-	"projects": [
-		{
-		"title": "Street Photography",
-		"dates": "2015",
-		"description": "Voted the best street photography by Photo magazine",
-		"image": "http://lorempixel.com/150/150"
-		},
-		{
-		"title": "BW Photography",
-		"dates": "2014",
-		"description": "Won 2014 most artistic BW photography",
-		"image": "http://lorempixel.com/g/150/150/"
-		}
-	]
-};
-
+// HEADER Section
 var bio = {
 	"name": "Ronny Hoesada",
 	"role": "Full Stack Developer Ninja",
@@ -50,44 +15,6 @@ var bio = {
 	},
 	"skills": ["Ruby on Rails", "JavaScript", "HTML5", "CSS"],
 };
-
-var education = {
-	"schools": [
-		{
-		"name": "Stanford University",
-		"location": "Stanford, CA",
-		"degree": "Master of Science",
-		"majors": "Computer Science",
-		"dates": "2010",
-		"url": "www.Stanford.edu"
-		},
-		{
-		"name": "UC Berkeley",
-		"location": "Berkeley, CA",
-		"degree": "Bachelor of Science",
-		"majors": "EECS",
-		"dates": "2008",
-		"url": "www.Berkeley.edu"
-		}
-	],
-
-	"onlineCourses": [
-		{
-		"title": "Intro to HTML and CSS",
-		"school": "Udacity",
-		"dates": "2015",
-		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
-		},
-		{
-		"title": "JavaScript Basics",
-		"school": "Udacity",
-		"dates": "2015",
-		"url": "https://www.udacity.com/course/javascript-basics--ud804"
-		}
-	]
-};
-
-// HEADER Section
 bio.display = function() {
 	// General Bio
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -116,6 +43,24 @@ bio.display();
 
 
 // WORK EXPERIENCE Section
+var work = {
+	"jobs": [
+		{
+		"employer": "Google",
+		"title": "Front-end Developer",
+		"location": "Mountain View, CA",
+		"dates": "2015 - present",
+		"description": "The best front-end engineer"
+		},
+		{
+		"employer": "Twitter",
+		"title": "Junior Front-end Developer",
+		"location": "San Francisco, CA",
+		"dates": "2012 - 2015",
+		"description": "Created the blue bird"
+		}
+	]
+};
 work.display = function() {
 	for (var job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -127,11 +72,27 @@ work.display = function() {
 		var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription;
 		$(".work-entry:last").append(formattedEmployerTitle);
 	}
-}
+};
 work.display();
 
 
 // PROJECT Section
+var project = {
+	"projects": [
+		{
+		"title": "Street Photography",
+		"dates": "2015",
+		"description": "Voted the best street photography by Photo magazine",
+		"image": "http://lorempixel.com/150/150"
+		},
+		{
+		"title": "BW Photography",
+		"dates": "2014",
+		"description": "Won 2014 most artistic BW photography",
+		"image": "http://lorempixel.com/g/150/150/"
+		}
+	]
+};
 project.display = function() {
 	for (var p in project.projects) {
 		$("#projects").append(HTMLprojectStart);
@@ -142,12 +103,49 @@ project.display = function() {
 		var formattedProjectAll = formattedTitle + formattedDates + formattedDescription + formattedImage;
 		$(".project-entry:last").append(formattedProjectAll);
 	}
-}
+};
 project.display();
 
 
-// EDUCATION Section
+// EDUCATION and ONLINE CLASS Section
+var education = {
+	// Schools
+	"schools": [
+		{
+		"name": "Stanford University",
+		"location": "Stanford, CA",
+		"degree": "Master of Science",
+		"majors": "Computer Science",
+		"dates": "2010",
+		"url": "www.Stanford.edu"
+		},
+		{
+		"name": "UC Berkeley",
+		"location": "Berkeley, CA",
+		"degree": "Bachelor of Science",
+		"majors": "EECS",
+		"dates": "2008",
+		"url": "www.Berkeley.edu"
+		}
+	],
+	// Online Classes
+	"onlineCourses": [
+		{
+		"title": "Intro to HTML and CSS",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/intro-to-html-and-css--ud304"
+		},
+		{
+		"title": "JavaScript Basics",
+		"school": "Udacity",
+		"dates": "2015",
+		"url": "https://www.udacity.com/course/javascript-basics--ud804"
+		}
+	]
+};
 project.display = function() {
+	// Schools
 	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
@@ -158,7 +156,6 @@ project.display = function() {
 		var formattedSchoolAll = formattedName + formattedDegree + formattedDates + formattedLocation + formattedMajor;
 		$(".education-entry:last").append(formattedSchoolAll);
 	}
-
 	// Online courses
 	$("#education").append(HTMLonlineClasses);
 	for (var online in education.onlineCourses) {
@@ -170,10 +167,10 @@ project.display = function() {
 		console.log(formattedOnlineAll);
 		$(".education-entry:last").next().append(formattedOnlineAll);
 	}
-}
+};
 project.display();
 
 
-// add widgets to HTML page
+// Add widgets to HTML page
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);
