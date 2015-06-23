@@ -1,3 +1,5 @@
+"use strict";
+
 var work = {
 	"jobs": [
 		{
@@ -15,7 +17,7 @@ var work = {
 		"description": "Created the blue bird"
 		}
 	]
-}
+};
 
 var project = {
 	"projects": [
@@ -32,7 +34,7 @@ var project = {
 		"image": "http://lorempixel.com/g/150/150/"
 		}
 	]
-}
+};
 
 var bio = {
 	"name": "Ronny Hoesada",
@@ -47,7 +49,7 @@ var bio = {
 		"location": "San Francisco, CA"
 	},
 	"skills": ["Ruby on Rails", "JavaScript", "HTML5", "CSS"],
-}
+};
 
 var education = {
 	"schools": [
@@ -83,10 +85,10 @@ var education = {
 		"url": "https://www.udacity.com/course/javascript-basics--ud804"
 		}
 	]
-}
+};
 
 // HEADER Section
-function displayBio() {
+bio.display = function() {
 	// General Bio
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -105,18 +107,17 @@ function displayBio() {
 
 	// Skills at a glance
 	$("#topContacts").append(HTMLskillsStart);
-	for (skill in bio.skills) {
+	for (var skill in bio.skills) {
 		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 	$("#skills").append(formattedSkill);
 	}
-
-}
-displayBio();
+};
+bio.display();
 
 
 // WORK EXPERIENCE Section
-function displayWork() {
-	for (job in work.jobs) {
+work.display = function() {
+	for (var job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
@@ -127,12 +128,12 @@ function displayWork() {
 		$(".work-entry:last").append(formattedEmployerTitle);
 	}
 }
-displayWork();
+work.display();
 
 
 // PROJECT Section
-function displayProject() {
-	for (p in project.projects) {
+project.display = function() {
+	for (var p in project.projects) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedTitle = HTMLprojectTitle.replace("%data%", project.projects[p].title);
 		var formattedDates = HTMLprojectDates.replace("%data%", project.projects[p].dates);
@@ -142,12 +143,12 @@ function displayProject() {
 		$(".project-entry:last").append(formattedProjectAll);
 	}
 }
-displayProject();
+project.display();
 
 
 // EDUCATION Section
-function displayEducation() {
-	for (school in education.schools) {
+project.display = function() {
+	for (var school in education.schools) {
 		$("#education").append(HTMLschoolStart);
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
 		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
@@ -160,7 +161,7 @@ function displayEducation() {
 
 	// Online courses
 	$("#education").append(HTMLonlineClasses);
-	for (online in education.onlineCourses) {
+	for (var online in education.onlineCourses) {
 		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
 		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
 		var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[online].dates);
@@ -170,7 +171,7 @@ function displayEducation() {
 		$(".education-entry:last").next().append(formattedOnlineAll);
 	}
 }
-displayEducation();
+project.display();
 
 
 // add widgets to HTML page
